@@ -9,77 +9,75 @@
 
 body{
   display: flex;
-  padding: 0 10px;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
   background: #173236;
+  position: relative;
 }
 
+/* الصور */
 .corner-image {
   position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 5%;
+  top: 10px;
+  left: 10px;
+  width: 60px; /* ثابت على اللاب */
   height: auto;
-  aspect-ratio: 1/4;
   z-index: 9999;
 }
 
 .bottom-right-image {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  max-width: 5%; 
+  bottom: 10px;
+  right: 10px;
+  width: 60px;
   height: auto;
-  aspect-ratio: 1/4;
   z-index: 9999;
 }
 
 .left-bottom-big {
   position: absolute;
-  bottom: 10px;   
-  left: 10px;     
-  max-width: 7%;
+  bottom: 10px;
+  left: 10px;
+  width: 80px;
   height: auto;
-  aspect-ratio: 1/1;
   z-index: 10;
 }
 
 .left-bottom-small {
   position: absolute;
-  bottom: 10px;   
-  left: 140px;    
-  max-width: 5%;
+  bottom: 10px;
+  left: 110px;
+  width: 60px;
   height: auto;
-  aspect-ratio: 1/1;
   z-index: 20;
-}
-
-
-.container-wrapper {
-  position: relative;
-  width: 440px;
-  margin: 80px auto 0;
 }
 
 .top-image {
   position: absolute;
-  top: -250px;
+  top: -200px;
   left: 50%;
   transform: translateX(-50%);
-  max-width:100%;
+  width: 300px;
   height: auto;
-  aspect-ratio: 17/10;
   z-index: 10;
 }
 
+/* الكونتينر */
+.container-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
 .container{
-  width: 440px;
+  width: 100%;
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 10px 20px #958DBF(0,0,0,0.08);
-  padding: 1rem 0;
+  box-shadow: 0 10px 20px rgba(149, 141, 191, 0.08);
+  padding: 1em;
 }
 
 .container h2{
@@ -142,8 +140,9 @@ body{
 
 .content .buttons{
   display: flex;
-  margin-top: 20px;
   justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
 }
 
 .buttons button{
@@ -154,7 +153,7 @@ body{
   padding: 15px 0;
   font-size: 17px;
   border-radius: 5px;
-  width: calc(100% / 2 - 8px);
+  flex: 1 1 calc(50% - 8px);
   transition: all 0.3s ease;
 }
 
@@ -178,31 +177,57 @@ body{
   background: #6C757D;
 }
 
+/* Responsive للجوال */
 @media screen and (max-width: 470px) {
+
+  .top-image{
+    top: -150px;
+    width: 200px;
+  }
+
+  .corner-image,
+  .bottom-right-image{
+    width: 40px;
+  }
+
+  .left-bottom-big{
+    width: 60px;
+    left: 10px;
+  }
+
+  .left-bottom-small{
+    width: 40px;
+    left: 90px;
+  }
+
   .container h2{
     font-size: 22px;
     padding: 13px 20px;
   }
+
   .content .word{
-    font-size: 30px;
-    letter-spacing: 20px;
-    margin-right: -20px;
+    font-size: 28px;
+    letter-spacing: 16px;
+    margin-right: -16px;
   }
+
   .container .content{
-    margin: 20px 20px 30px;
+    margin: 20px 15px 25px;
   }
+
   .details p{
     font-size: 16px;
     margin-bottom: 8px;
   }
+
   .content input{
-    height: 55px;
-    font-size: 17px;
-  }
-  .buttons button{
-    padding: 14px 0;
+    height: 50px;
     font-size: 16px;
-    width: calc(100% / 2 - 7px);
   }
 
+  .buttons button{
+    padding: 12px 0;
+    font-size: 15px;
+    flex: 1 1 100%;
+  }
 }
